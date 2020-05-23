@@ -1,0 +1,246 @@
+/** soft reset do css */
+* {
+  margin: 0; /** margem para o html não mudar */
+  padding: 0;
+  box-sizing: border-box; /** borda tbm */
+}
+
+body { /** tudo do site */
+  background-image: url('https://i.imgur.com/QEcQHk4.png'); /** fundo do site */
+  background-size: auto 100vh; /** ajuste na tela LXC*/
+  font-family: 'Comfortaa', cursive; /** fonte */
+  height: 100vh; /** altura */
+}
+
+/* se a tela tiver pelo menos 400px vai carregar as midias */
+@media (min-width: 400px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+/** brakpoint quebras de pontos, nunca será exato as telas */
+@media (min-width: 600px) {
+  body {
+    font-size: 18px;
+  }
+}
+
+/** pega essas caracteristicas a partir de 1400px */
+@media (min-width: 1200px) {
+  body {
+    font-size: 20px;
+  }
+} 
+
+header {
+  height: 100vh; /** altura do cabeçalho */
+  display: flex;
+  justify-content: center; /** alinhamento centralizado */
+  align-items: center; /** alinhamento centralizado */
+}
+
+.menu {
+  background-color: black; /** fundo cabeçalho*/
+  position: fixed; /**cabeçalho fixo na tela */
+  width: 100vw;
+  top: 0; /**cabeçalho cola no topo*/
+  z-index: 1;
+}
+
+.menu li {
+  list-style: none; /** sem pontos nas listas do menu*/
+}
+
+.menu ul {
+display: flex; 
+justify-content: space-around; /** espaçamento ao redor*/
+}
+
+.menu a {
+  display: block;
+  background-color: purple; /** cor link*/
+  padding: 10px 20px;
+  color: white;
+  transition: background-color 5s, color 2s;
+}
+
+.menu a:hover {
+  background-color: purple;
+  color: white;
+}
+
+a { 
+  text-decoration: none; 
+  color: teal; /** cor texto */
+}
+
+a:hover {
+  text-decoration: underline;  
+}
+
+.titulo {
+  transform: scale(0.2) translateY(50vh);
+  opacity: 0;
+
+  animation: linear 2s animacaotitulo forwards;
+}
+
+@keyframes animacaotitulo {
+  from{
+    transform: scale(0.2) translateY(50vh);
+    opacity: 0;
+  }
+  to{
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+.site-subtitle, .site-title {
+  text-align: center; /** alinha no centro*/
+  color: black; /** cor dos titulos*/
+}
+
+.site-title {
+  font-size: 4em; /** proporcional ao tmanho do site*/
+  font-family: 'Dancing Script', cursive;
+}
+.site-subtitle {
+  font-style: italic; /** fonte do sibtitle*/
+  font-family: 'East Sea Dokdo', cursive;
+  line-height: 1.8em;
+}
+
+.sobre,
+.contato,
+.portfolio {
+  padding: 2em;
+  min-height: 100vh;
+}
+
+@media (min-width: 1200px) {
+.container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.sobre h2,
+.contato h2,
+.portfolio h2 {
+  font-family: 'Press Start 2P', cursive;
+  color: whitesmoke;
+  margin-bottom: 1.5em;
+  font-size: 2em;
+  font-style: italic;
+  text-align: center;
+}
+
+.sobre p {
+  color: black;
+  margin-bottom: 1.4em;
+  text-indent: 1.4em;
+  text-align: justify;
+}
+
+.sobre a {
+  color: teal;
+  text-decoration: underline;
+}
+
+.sobre .avatar {
+  clip-path: polygon(50% 0%, 83% 12%, 100% 43%, 94% 78%, 68% 100%, 32% 100%, 6% 78%, 0% 43%, 17% 12%);
+  float: right;
+  margin-left: 2em;
+}
+
+@media (min-width: 560px) {
+  .sobre .avatar {
+    float: right;
+    clip-path: polygon(50% 0%, 83% 12%, 100% 43%, 94% 78%, 68% 100%, 32% 100%, 6% 78%, 0% 43%, 17% 12%);
+  }
+}
+
+.portfolio .grid {
+  display: grid;
+  gap: 2em;
+}
+
+@media (min-width: 560px) {
+  .portfolio .grid {
+    grid-template-columns: 240px 240px;
+  }
+}
+
+@media (min-width: 880px) {
+  .portfolio .grid {
+    grid-template-columns: repeat(4, 260px);
+    align-content: center;
+    justify-content: center;
+    height: calc(100vh - 8em - 48px);
+  }
+}
+
+.portfolio figure {
+  text-align: center;
+}
+
+.img-portfolio {
+  height: 180px;
+  width: 240px;
+  object-fit: cover;
+  object-position: left bottom;
+  transition: transform 500ms;
+}
+
+/*.img-portfolio:hover {
+  transform: scale(1.2) rotate(-2deg);
+}**/
+
+.flip-card {
+  perspective: 500px;
+}
+
+.card {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+}
+
+.flip-card:hover .card {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  top: 0;
+  left 0;
+  backface-visibility: hidden;
+}
+
+.card-back {
+  background-color: white;
+  height: 180px;
+  width: 100%;
+  transform: rotateY(180deg);
+}
+
+.contato .icons {
+  text-align: center;
+  margin-top: 120px;
+  font-size: 4em;
+  letter-spacing: 0.8em;
+}
+
+.contato a {
+  color: whitesmoke;
+  transition: text-shadow 1s;
+}
+
+.contato a:active,
+.contato a:hover  {
+  text-decoration: none;
+  text-shadow: 0px 0px 10px rgba (10% 10% 10%);
+}
